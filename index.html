@@ -6,16 +6,42 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>The Caterpillar</h1>
+    <h1 id="title">The Caterpillar</h1>
 
     <p>This is a <strong>caterpillar</strong> in its natural habitat:</p>
     <img
+      class="catPicture"
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Monarch_caterpillar_on_swan_plant_branchlet.jpg/960px-Monarch_caterpillar_on_swan_plant_branchlet.jpg?_=20080909013513"
       width="400"
     />
 
+    <div>
+      <h2>This is text now</h2>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
+        var numberClicks = 0;
+        var messages = ["whoa", "perfect", "here we are going"]
+
+        $("#title").click(function (){
+          $("#title").text("Newnewnew");
+        });
+
+        $(".catPicture").click(function (){
+          
+          numberClicks += 1;
+          $("p").text(numberClicks + " clicks");
+          console.log(numberClicks);
+          
+          if(numberClicks == 5){
+            $("div h2").html(messages[0])
+          }
+          else if(numberClicks == 10){
+             $("div h2").html(messages[1])
+          }
+
+        })
 
 
       
